@@ -1,74 +1,24 @@
-import { Feather } from "@react-native-vector-icons/feather";
-import React from "react";
-import {
-  Image,
-  Pressable,
-  StatusBar,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { Button, ButtonText } from "@/components/ui/button";
+import * as React from "react";
+import { StyleSheet, View } from "react-native";
+import { Link } from "react-navigation/native";
 
-export default function Index() {
+export default function Home() {
   return (
-    <>
-      <StatusBar barStyle="default" />
-      <View style={styles.main}>
-        <View style={styles.imgcont}>
-          <Image
-            source={require("./assets/images/Splash.jpg")}
-            style={styles.card}
-          />
-        </View>
-        <View style={styles.swipe}>
-          \
-          <View style={styles.delete}>
-            <Pressable
-              style={{ borderRadius: "50%", backgroundColor: "#E63946" }}
-            >
-              <Feather name="x" color="#000" size={55} />
-            </Pressable>
-            <Text style={{ color: "#F5F7FA", alignSelf: "center" }}>
-              Delete
-            </Text>
-          </View>
-          <View style={styles.save}>
-            <Pressable
-              style={{ borderRadius: "50%", backgroundColor: "#2ECC71" }}
-            >
-              <Feather name="check" color="#000" size={55} />
-            </Pressable>
-            <Text style={{ color: "#F5F7FA", alignSelf: "center" }}>Save</Text>
-          </View>
-        </View>
+    <View style={styles.body}>
+      <View style={styles.btncont}>
+        <Button variant="solid" size="md" style={styles.button}>
+          <ButtonText>Button</ButtonText>
+        </Button>
       </View>
-    </>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  main: {
-    flex: 1,
-    backgroundColor: "#1E1E1E",
+  body: { flex: 1, backgroundColor: "#212121" },
+  button: {
+    width: 160,
   },
-  imgcont: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  card: {
-    position: "absolute",
-    top: 90,
-    width: 290,
-    height: 490,
-    borderRadius: 12,
-  },
-  swipe: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    position: "relative",
-    bottom: 50,
-  },
-  delete: {},
-  save: {},
+  btncont: { flex: 1, alignItems: "center", justifyContent: "center" },
 });
